@@ -47,7 +47,9 @@ ok "linked clone -> $BINDIR/clone"
 
 case ":$PATH:" in
   *":$BINDIR:"*) ok "$BINDIR is on your PATH" ;;
-  *) printf '\nAdd to your shell rc:\n  export PATH="%s:$PATH"\n' "$BINDIR" ;;
+  *)
+    # shellcheck disable=SC2016  # the literal $PATH is intentional in this hint
+    printf '\nAdd to your shell rc:\n  export PATH="%s:$PATH"\n' "$BINDIR" ;;
 esac
 
 if [[ $DRYRUN -eq 0 ]]; then
