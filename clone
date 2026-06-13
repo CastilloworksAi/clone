@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# clone — launcher for clone.py. Prefers the local venv created by setup.sh.
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -x "$DIR/.venv/bin/python" ]]; then
+  exec "$DIR/.venv/bin/python" "$DIR/clone.py" "$@"
+fi
+exec python3 "$DIR/clone.py" "$@"
