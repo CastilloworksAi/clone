@@ -3,7 +3,7 @@
 [![ci](https://github.com/CastilloworksAi/clone/actions/workflows/ci.yml/badge.svg)](https://github.com/CastilloworksAi/clone/actions/workflows/ci.yml)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-**Make anything say anything — in any voice — on your own GPU.** Zero-shot voice
+**Make anything say anything, in any voice, on your own GPU.** Zero-shot voice
 cloning from a few seconds of reference audio, powered by
 [Chatterbox](https://github.com/resemble-ai/chatterbox) (MIT). No account, no
 per-character billing, no audio leaving your machine.
@@ -41,11 +41,11 @@ clone "this is my cloned voice" --voice sample.wav
 | `--device` | `auto` | `auto`/`cuda`/`mps`/`cpu` |
 | `--exaggeration` | `0.5` | expressiveness, 0–1 |
 | `--cfg-weight` | `0.5` | pacing / how closely it follows the text, 0–1 |
-| `--dry-run` | — | print the plan, synthesize nothing |
-| `--check` | — | verify the engine is installed + show the device |
+| `--dry-run` | - | print the plan, synthesize nothing |
+| `--check` | - | verify the engine is installed + show the device |
 
 ### Tips for a good clone
-- Reference audio should be **clean** — one speaker, no music, no echo.
+- Reference audio should be **clean**: one speaker, no music, no echo.
 - ~10 seconds is plenty. More isn't better; *cleaner* is better.
 - Bump `--exaggeration` for energetic delivery; lower `--cfg-weight` for a slower,
   more deliberate read.
@@ -61,12 +61,12 @@ clone "this is my cloned voice" --voice sample.wav
 bash tests/test.sh
 ```
 
-The engine is imported **lazily**, so the whole CLI — `--help`, `--check`,
-`--dry-run`, argument validation — is tested here with no model, no torch, and
+The engine is imported **lazily**, so the whole CLI (`--help`, `--check`,
+`--dry-run`, argument validation) is tested here with no model, no torch, and
 no GPU. CI runs the suite plus `shellcheck`.
 
 > The actual synthesis needs the model + (ideally) a GPU, so it can't run on a
-> GPU-less CI box — that part is verified by running `./setup.sh` and a real
+> GPU-less CI box. That part is verified by running `./setup.sh` and a real
 > `clone "..."` on your own hardware. The CLI/plumbing around it is fully tested.
 
 ## Please use this responsibly
@@ -77,4 +77,4 @@ responsible for what you generate.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
